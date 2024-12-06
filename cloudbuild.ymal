@@ -1,0 +1,10 @@
+steps:
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        # Abrufen der .tfvars-Datei aus dem Secret Manager
+        gcloud secrets versions access latest --secret=tfvarsTEST > /workspace/a.txt
+        head a.txt
